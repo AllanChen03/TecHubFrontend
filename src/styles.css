@@ -166,9 +166,9 @@
 }
 
 .alto-contraste {
-  /* Paleta Oficial Chrome Extension: Amarillo Eléctrico sobre Negro Puro */
+  /* Paleta Base Oficial */
   --background: #000000;
-  --foreground: #ffff00; /* El amarillo es el color base para el texto */
+  --foreground: #ffff00;
 
   --card: #000000;
   --card-foreground: #ffff00;
@@ -176,7 +176,6 @@
   --popover: #000000;
   --popover-foreground: #ffff00;
 
-  /* Elementos principales y activos */
   --primary: #ffff00;
   --primary-foreground: #000000;
   --primary-soft: #ffff00;
@@ -184,20 +183,17 @@
   --secondary: #000000;
   --secondary-foreground: #ffff00;
 
-  /* Elementos secundarios o deshabilitados */
   --muted: #ffff00;
   --muted-foreground: #000000;
 
   --accent: #ffff00;
   --accent-foreground: #000000;
 
-  /* Estados de alerta adaptados al esquema estricto de Chrome */
-  --destructive: #ff5722;           /* Naranja de alta visibilidad */
+  --destructive: #ff5722;
   --destructive-foreground: #000000;
-  --success: #00ffff;               /* Cian brillante */
+  --success: #00ffff;
   --warning: #ffff00;
 
-  /* Bordes y elementos de interfaz obligatorios en Blanco Puro para contraste estructural */
   --border: #ffffff;
   --input: #ffffff;
   --ring: #ffff00;
@@ -212,19 +208,17 @@
   --sidebar-ring: #ffff00;
 }
 
-/* --- Estilos Globales Estrictos --- */
-
+/* --- Estilos Globales --- */
 .alto-contraste body {
   background-color: #000000 !important;
   color: #ffff00 !important;
 }
 
-/* Forzar que todos los bordes sean visibles y delgados en blanco */
 .alto-contraste * {
   border-color: #ffffff !important;
 }
 
-/* Enlaces (Copia fiel del comportamiento de la extensión) */
+/* --- Enlaces Generales --- */
 .alto-contraste a {
   color: #ffff00 !important;
   text-decoration: underline !important;
@@ -232,20 +226,25 @@
   font-weight: 700 !important;
 }
 
-/* --- REGLA DE INVERSIÓN TOTAL PARA EL NAVBAR Y ELEMENTOS INTERACTIVOS --- */
-/* Cuando el usuario hace hover/focus en el navbar, el fondo pasa a amarillo y el texto a negro puro */
+/* --- NAVBAR Y ELEMENTOS INTERACTIVOS (Hover y Active) --- */
+/* Forzamos el fondo amarillo y texto negro para legibilidad total */
 .alto-contraste nav a:hover,
 .alto-contraste nav a:focus,
 .alto-contraste .navbar a:hover,
 .alto-contraste .navbar a:focus,
 .alto-contraste .nav-item:hover,
-.alto-contraste [role="menuitem"]:hover {
+.alto-contraste [role="menuitem"]:hover,
+.alto-contraste nav a.active,
+.alto-contraste nav a[aria-current="page"],
+.alto-contraste .navbar .active,
+.alto-contraste nav a[style*="background"], 
+.alto-contraste nav a.bg-yellow-400 {
   background-color: #ffff00 !important;
   color: #000000 !important;
   text-decoration: underline !important;
 }
 
-/* Botones con comportamiento invertido por defecto o al interactuar */
+/* --- Botones --- */
 .alto-contraste button {
   background-color: #000000 !important;
   color: #ffff00 !important;
@@ -262,7 +261,7 @@
   border-color: #ffff00 !important;
 }
 
-/* Formularios del Modo Chrome */
+/* --- Formularios --- */
 .alto-contraste input,
 .alto-contraste textarea,
 .alto-contraste select {
@@ -274,10 +273,10 @@
 .alto-contraste input::placeholder,
 .alto-contraste textarea::placeholder {
   color: #ffff00;
-  opacity: 0.7; /* Ligera opacidad permitida solo en alto contraste para placeholders */
+  opacity: 0.7;
 }
 
-/* Contorno de Enfoque de Teclado (Focus Ring oficial) */
+/* --- Accesibilidad de Teclado --- */
 .alto-contraste :focus-visible {
   outline: 4px solid #ffff00 !important;
   outline-offset: 4px !important;
@@ -288,40 +287,31 @@
   color: #000000 !important;
 }
 
+/* ==========================================================================
+   SISTEMA DE TARJETAS Y FOTOGRAFÍAS (PRODUCTOS)
+   ========================================================================== */
+
+/* 1. Forzar fondo negro y borde blanco en las tarjetas y sus contenedores */
 .alto-contraste .card,
-.alto-contraste .producto-card {
+.alto-contraste [class*="card"],
+.alto-contraste .card > div,
+.alto-contraste [class*="card"] > div {
   background-color: #000000 !important;
-  border: 1px solid #ffff00 !important; /* Borde amarillo sutil alrededor del producto */
-  border-radius: 8px; /* Mantén el borde redondeado si tu diseño original lo tiene */
-  overflow: hidden;
+  border: 1px solid #ffffff !important;
 }
 
-/* 2. Textos dentro de la tarjeta (Título, Precio, Estado, Sede, Categoría) */
-.alto-contraste .card h1,
-.alto-contraste .card h2,
-.alto-contraste .card h3,
-.alto-contraste .card p,
-.alto-contraste .card span {
+/* 2. Limpiar fondos blancos residuales dentro de la tarjeta */
+.alto-contraste .card *,
+.alto-contraste [class*="card"] * {
+  background-color: transparent !important;
   color: #ffff00 !important;
 }
 
-/* 3. Contenedor de la imagen (opcional, para separar la foto del texto) */
-.alto-contraste .card .img-container,
-.alto-contraste .card figure {
+/* 3. Filtro de Imágenes (Invierte el blanco a negro y aplica amarillo neón) */
+.alto-contraste .card img,
+.alto-contraste [class*="card"] img {
   background-color: #000000 !important;
-  border-bottom: 1px solid #ffff00 !important; /* Línea divisoria entre imagen y texto */
-}
-
-/* 4. EL TRUCO MAGNÍFICO: Convertir cualquier foto a Amarillo y Negro */
-.alto-contraste .card img {
-  /* Explicación del filtro:
-     1. grayscale(100%): Le quita todos los colores originales a la foto.
-     2. sepia(100%): Convierte la foto en tonos marrón/cálidos.
-     3. hue-rotate(15deg): Gira el tono marrón hacia el amarillo puro.
-     4. saturate(1000%): Exagera el color al máximo para lograr el efecto neón.
-     5. contrast(200%): Hace que los oscuros sean negros puros y los claros resalten. */
-  filter: grayscale(100%) sepia(100%) hue-rotate(15deg) saturate(1000%) contrast(200%) !important;
-  
-  /* Opcional: Si tus imágenes originales tienen fondo blanco y quieres que se fundan con el negro */
-  mix-blend-mode: screen; 
+  filter: invert(100%) grayscale(100%) sepia(100%) hue-rotate(15deg) saturate(1000%) contrast(200%) !important;
+  mix-blend-mode: normal !important;
+  border: none !important;
 }

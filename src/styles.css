@@ -165,39 +165,30 @@
   }
 }
 
+/* --- ALTO CONTRASTE VARIABLES --- */
 .alto-contraste {
-  /* Paleta Base Oficial */
   --background: #000000;
   --foreground: #ffff00;
-
   --card: #000000;
   --card-foreground: #ffff00;
-
   --popover: #000000;
   --popover-foreground: #ffff00;
-
   --primary: #ffff00;
   --primary-foreground: #000000;
   --primary-soft: #ffff00;
-
   --secondary: #000000;
   --secondary-foreground: #ffff00;
-
   --muted: #ffff00;
   --muted-foreground: #000000;
-
   --accent: #ffff00;
   --accent-foreground: #000000;
-
   --destructive: #ff5722;
   --destructive-foreground: #000000;
   --success: #00ffff;
   --warning: #ffff00;
-
   --border: #ffffff;
   --input: #ffffff;
   --ring: #ffff00;
-
   --sidebar: #000000;
   --sidebar-foreground: #ffff00;
   --sidebar-primary: #ffff00;
@@ -208,10 +199,7 @@
   --sidebar-ring: #ffff00;
 }
 
-/* ==========================================================================
-   1. ESTILOS GLOBALES Y LIMPIEZA
-   ========================================================================== */
-
+/* --- ALTO CONTRASTE GLOBAL --- */
 .alto-contraste body {
   background-color: #000000 !important;
   color: #ffff00 !important;
@@ -221,8 +209,6 @@
   border-color: #ffffff !important;
 }
 
-/* Limpieza Agresiva: Hace que contenedores base sean transparentes 
-   para no tapar el fondo negro principal */
 .alto-contraste div,
 .alto-contraste section,
 .alto-contraste article,
@@ -234,7 +220,6 @@
   color: #ffff00 !important;
 }
 
-/* Excepción: Mantener fondo negro sólido en modales, dropdowns o menús flotantes */
 .alto-contraste [role="dialog"],
 .alto-contraste [role="menu"],
 .alto-contraste .dropdown-menu {
@@ -242,10 +227,7 @@
   border: 1px solid #ffffff !important;
 }
 
-/* ==========================================================================
-   2. ENLACES Y NAVEGACIÓN
-   ========================================================================== */
-
+/* --- ALTO CONTRASTE NAVBAR Y ENLACES --- */
 .alto-contraste a {
   color: #ffff00 !important;
   text-decoration: underline !important;
@@ -253,7 +235,6 @@
   font-weight: 700 !important;
 }
 
-/* Navbar y Elementos Interactivos (Hover y Active con Inversión Total) */
 .alto-contraste nav a:hover,
 .alto-contraste nav a:focus,
 .alto-contraste .navbar a:hover,
@@ -270,7 +251,6 @@
   text-decoration: underline !important;
 }
 
-/* Accesibilidad de Teclado (Focus) */
 .alto-contraste :focus-visible {
   outline: 4px solid #ffff00 !important;
   outline-offset: 4px !important;
@@ -281,10 +261,7 @@
   color: #000000 !important;
 }
 
-/* ==========================================================================
-   3. BOTONES, FORMULARIOS Y PERFIL
-   ========================================================================== */
-
+/* --- ALTO CONTRASTE BOTONES Y FORMULARIOS --- */
 .alto-contraste button {
   background-color: #000000 !important;
   color: #ffff00 !important;
@@ -301,22 +278,6 @@
   border-color: #ffff00 !important;
 }
 
-/* Botón de Perfil / Avatar */
-.alto-contraste .rounded-full,
-.alto-contraste [class*="avatar"],
-.alto-contraste [class*="rounded-full"] {
-  background-color: #000000 !important;
-  border: 1px solid #ffffff !important;
-  color: #ffff00 !important;
-}
-
-.alto-contraste .rounded-full *,
-.alto-contraste [class*="avatar"] * {
-  color: #ffff00 !important;
-  fill: #ffff00 !important;
-}
-
-/* Formularios */
 .alto-contraste input,
 .alto-contraste textarea,
 .alto-contraste select {
@@ -331,47 +292,64 @@
   opacity: 0.7;
 }
 
-/* ==========================================================================
-   4. ESTRUCTURA PRINCIPAL Y TARJETAS
-   ========================================================================== */
-
-/* Bloque de Bienvenida (Hero Section) */
+/* --- ALTO CONTRASTE BIENVENIDA (HERO) --- */
 .alto-contraste main > section:first-of-type,
 .alto-contraste main > div:first-of-type,
 .alto-contraste .bg-primary,
 .alto-contraste [class*="bg-primary"],
-.alto-contraste [class*="hero"] {
+.alto-contraste [class*="hero"],
+.alto-contraste .bg-gradient-to-r,
+.alto-contraste [class*="bg-gradient-to"] {
   background-color: #000000 !important;
   background-image: none !important;
-  color: #ffff00 !important;
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff !important;
 }
 
-/* Tarjetas (Productos y Categorías) */
+.alto-contraste .bg-gradient-to-r h1,
+.alto-contraste .bg-gradient-to-r p,
+.alto-contraste [class*="bg-gradient-to"] h1,
+.alto-contraste [class*="bg-gradient-to"] p {
+  color: #ffff00 !important;
+  background-color: transparent !important;
+  opacity: 1 !important;
+}
+
+/* --- ALTO CONTRASTE PRODUCTOS Y CATEGORIAS --- */
 .alto-contraste .card,
 .alto-contraste [class*="card"] {
   background-color: #000000 !important;
   border: 1px solid #ffffff !important;
 }
 
-/* Evitar el efecto "caja dentro de caja" en los elementos internos */
 .alto-contraste .card > div,
-.alto-contraste [class*="card"] > div {
+.alto-contraste [class*="card"] > div,
+.alto-contraste a > div {
   border: none !important;
 }
 
-/* Limpiar textos dentro de las tarjetas */
 .alto-contraste .card *,
 .alto-contraste [class*="card"] * {
   background-color: transparent !important;
   color: #ffff00 !important;
 }
 
-/* ==========================================================================
-   5. IMÁGENES Y SVGS (El Filtro Neón)
-   ========================================================================== */
+/* --- ALTO CONTRASTE PERFIL Y AVATARES --- */
+.alto-contraste .rounded-full,
+.alto-contraste [class*="avatar"],
+.alto-contraste [class*="rounded-full"] {
+  background-color: #000000 !important;
+  border: 1px solid #ffffff !important;
+  color: #ffff00 !important;
+}
 
-/* Aplica a fotos de productos y cualquier otra imagen */
+.alto-contraste .rounded-full *,
+.alto-contraste [class*="avatar"] *,
+.alto-contraste [class*="rounded-full"] * {
+  color: #ffff00 !important;
+  fill: currentColor !important;
+}
+
+/* --- ALTO CONTRASTE IMAGENES Y SVG --- */
 .alto-contraste img {
   background-color: #000000 !important;
   filter: invert(100%) grayscale(100%) sepia(100%) hue-rotate(15deg) saturate(1000%) contrast(200%) !important;
@@ -379,14 +357,12 @@
   border: none !important;
 }
 
-/* Íconos vectoriales */
 .alto-contraste svg {
   color: #ffff00 !important;
   fill: currentColor !important;
   stroke: #ffff00 !important; 
 }
 
-/* Inversión de SVGs al hacer hover en botones o enlaces */
 .alto-contraste button:hover svg,
 .alto-contraste a:hover svg {
   color: #000000 !important;

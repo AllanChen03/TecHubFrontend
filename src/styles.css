@@ -315,3 +315,46 @@
   mix-blend-mode: normal !important;
   border: none !important;
 }
+
+.alto-contraste div,
+.alto-contraste section,
+.alto-contraste article,
+.alto-contraste figure,
+.alto-contraste span,
+.alto-contraste header,
+.alto-contraste footer {
+  background-color: transparent !important;
+  color: #ffff00 !important;
+}
+
+/* Excepción: Mantener fondo negro en modales, dropdowns o menús flotantes 
+   para que no se mezclen con el contenido de atrás. */
+.alto-contraste [role="dialog"],
+.alto-contraste [role="menu"],
+.alto-contraste .dropdown-menu {
+  background-color: #000000 !important;
+  border: 1px solid #ffffff !important;
+}
+
+/* 2. Filtro Universal para TODAS las imágenes (incluyendo perfil y categorías) */
+.alto-contraste img {
+  background-color: #000000 !important;
+  filter: invert(100%) grayscale(100%) sepia(100%) hue-rotate(15deg) saturate(1000%) contrast(200%) !important;
+  mix-blend-mode: normal !important;
+}
+
+/* 3. Íconos SVG (Si las categorías o tu perfil usan iconos de código y no fotos) */
+.alto-contraste svg {
+  color: #ffff00 !important;
+  fill: currentColor !important;
+  /* Si tus iconos usan 'stroke' en lugar de 'fill' para dibujarse: */
+  stroke: #ffff00 !important; 
+}
+
+/* Si un SVG está dentro de un botón (como el botón de perfil), forzar que se invierta en hover */
+.alto-contraste button:hover svg,
+.alto-contraste a:hover svg {
+  color: #000000 !important;
+  fill: #000000 !important;
+  stroke: #000000 !important;
+}

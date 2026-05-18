@@ -150,6 +150,8 @@ export function AppShell({ children, admin = false }: Props) {
                 <Link
                   key={l.to}
                   to={l.to}
+                  activeOptions={{ exact: l.to === "/app" || l.to === "/admin" }}
+                  
                   aria-current={active ? "page" : undefined}
                   className={`px-3 py-1.5 rounded-md text-sm transition-colors ${
                     active

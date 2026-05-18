@@ -396,3 +396,35 @@
 .alto-contraste a[href="/app/perfil"]:focus svg {
   stroke: #000000 !important;
 }
+
+.alto-contraste button[aria-label*="alto contraste"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important; /* Recupera el espacio entre el icono y el texto */
+  height: 32px !important; /* Recupera la altura original (h-8) */
+  padding: 0 12px !important; /* Recupera el padding original (px-3) */
+  border-radius: 6px !important; /* Recupera el borde redondeado */
+  
+  /* Colores */
+  background-color: #000000 !important;
+  color: #ffff00 !important;
+  border: 1px solid #ffffff !important; /* Borde más fino para que no se deforme */
+  text-decoration: none !important;
+}
+
+/* Efecto Hover para el botón de contraste */
+.alto-contraste button[aria-label*="alto contraste"]:hover,
+.alto-contraste button[aria-label*="alto contraste"]:focus {
+  background-color: #ffff00 !important;
+  color: #000000 !important;
+  border-color: #ffff00 !important;
+}
+
+/* Control del Icono (SVG) para que cambie de color automáticamente */
+.alto-contraste button[aria-label*="alto contraste"] svg {
+  stroke: currentColor !important;
+  fill: none !important;
+  width: 16px !important;
+  height: 16px !important;
+}

@@ -208,7 +208,10 @@
   --sidebar-ring: #ffff00;
 }
 
-/* --- Estilos Globales --- */
+/* ==========================================================================
+   1. ESTILOS GLOBALES Y LIMPIEZA
+   ========================================================================== */
+
 .alto-contraste body {
   background-color: #000000 !important;
   color: #ffff00 !important;
@@ -218,7 +221,31 @@
   border-color: #ffffff !important;
 }
 
-/* --- Enlaces Generales --- */
+/* Limpieza Agresiva: Hace que contenedores base sean transparentes 
+   para no tapar el fondo negro principal */
+.alto-contraste div,
+.alto-contraste section,
+.alto-contraste article,
+.alto-contraste figure,
+.alto-contraste span,
+.alto-contraste header,
+.alto-contraste footer {
+  background-color: transparent !important;
+  color: #ffff00 !important;
+}
+
+/* Excepción: Mantener fondo negro sólido en modales, dropdowns o menús flotantes */
+.alto-contraste [role="dialog"],
+.alto-contraste [role="menu"],
+.alto-contraste .dropdown-menu {
+  background-color: #000000 !important;
+  border: 1px solid #ffffff !important;
+}
+
+/* ==========================================================================
+   2. ENLACES Y NAVEGACIÓN
+   ========================================================================== */
+
 .alto-contraste a {
   color: #ffff00 !important;
   text-decoration: underline !important;
@@ -226,8 +253,7 @@
   font-weight: 700 !important;
 }
 
-/* --- NAVBAR Y ELEMENTOS INTERACTIVOS (Hover y Active) --- */
-/* Forzamos el fondo amarillo y texto negro para legibilidad total */
+/* Navbar y Elementos Interactivos (Hover y Active con Inversión Total) */
 .alto-contraste nav a:hover,
 .alto-contraste nav a:focus,
 .alto-contraste .navbar a:hover,
@@ -244,7 +270,21 @@
   text-decoration: underline !important;
 }
 
-/* --- Botones --- */
+/* Accesibilidad de Teclado (Focus) */
+.alto-contraste :focus-visible {
+  outline: 4px solid #ffff00 !important;
+  outline-offset: 4px !important;
+}
+
+.alto-contraste .skip-link {
+  background: #ffff00 !important;
+  color: #000000 !important;
+}
+
+/* ==========================================================================
+   3. BOTONES, FORMULARIOS Y PERFIL
+   ========================================================================== */
+
 .alto-contraste button {
   background-color: #000000 !important;
   color: #ffff00 !important;
@@ -261,7 +301,22 @@
   border-color: #ffff00 !important;
 }
 
-/* --- Formularios --- */
+/* Botón de Perfil / Avatar */
+.alto-contraste .rounded-full,
+.alto-contraste [class*="avatar"],
+.alto-contraste [class*="rounded-full"] {
+  background-color: #000000 !important;
+  border: 1px solid #ffffff !important;
+  color: #ffff00 !important;
+}
+
+.alto-contraste .rounded-full *,
+.alto-contraste [class*="avatar"] * {
+  color: #ffff00 !important;
+  fill: #ffff00 !important;
+}
+
+/* Formularios */
 .alto-contraste input,
 .alto-contraste textarea,
 .alto-contraste select {
@@ -276,82 +331,62 @@
   opacity: 0.7;
 }
 
-/* --- Accesibilidad de Teclado --- */
-.alto-contraste :focus-visible {
-  outline: 4px solid #ffff00 !important;
-  outline-offset: 4px !important;
-}
-
-.alto-contraste .skip-link {
-  background: #ffff00 !important;
-  color: #000000 !important;
-}
-
 /* ==========================================================================
-   SISTEMA DE TARJETAS Y FOTOGRAFÍAS (PRODUCTOS)
+   4. ESTRUCTURA PRINCIPAL Y TARJETAS
    ========================================================================== */
 
-/* 1. Forzar fondo negro y borde blanco en las tarjetas y sus contenedores */
+/* Bloque de Bienvenida (Hero Section) */
+.alto-contraste main > section:first-of-type,
+.alto-contraste main > div:first-of-type,
+.alto-contraste .bg-primary,
+.alto-contraste [class*="bg-primary"],
+.alto-contraste [class*="hero"] {
+  background-color: #000000 !important;
+  background-image: none !important;
+  color: #ffff00 !important;
+  border-bottom: 1px solid #ffffff;
+}
+
+/* Tarjetas (Productos y Categorías) */
 .alto-contraste .card,
-.alto-contraste [class*="card"],
-.alto-contraste .card > div,
-.alto-contraste [class*="card"] > div {
+.alto-contraste [class*="card"] {
   background-color: #000000 !important;
   border: 1px solid #ffffff !important;
 }
 
-/* 2. Limpiar fondos blancos residuales dentro de la tarjeta */
+/* Evitar el efecto "caja dentro de caja" en los elementos internos */
+.alto-contraste .card > div,
+.alto-contraste [class*="card"] > div {
+  border: none !important;
+}
+
+/* Limpiar textos dentro de las tarjetas */
 .alto-contraste .card *,
 .alto-contraste [class*="card"] * {
   background-color: transparent !important;
   color: #ffff00 !important;
 }
 
-/* 3. Filtro de Imágenes (Invierte el blanco a negro y aplica amarillo neón) */
-.alto-contraste .card img,
-.alto-contraste [class*="card"] img {
+/* ==========================================================================
+   5. IMÁGENES Y SVGS (El Filtro Neón)
+   ========================================================================== */
+
+/* Aplica a fotos de productos y cualquier otra imagen */
+.alto-contraste img {
   background-color: #000000 !important;
   filter: invert(100%) grayscale(100%) sepia(100%) hue-rotate(15deg) saturate(1000%) contrast(200%) !important;
   mix-blend-mode: normal !important;
   border: none !important;
 }
 
-.alto-contraste div,
-.alto-contraste section,
-.alto-contraste article,
-.alto-contraste figure,
-.alto-contraste span,
-.alto-contraste header,
-.alto-contraste footer {
-  background-color: transparent !important;
-  color: #ffff00 !important;
-}
-
-/* Excepción: Mantener fondo negro en modales, dropdowns o menús flotantes 
-   para que no se mezclen con el contenido de atrás. */
-.alto-contraste [role="dialog"],
-.alto-contraste [role="menu"],
-.alto-contraste .dropdown-menu {
-  background-color: #000000 !important;
-  border: 1px solid #ffffff !important;
-}
-
-/* 2. Filtro Universal para TODAS las imágenes (incluyendo perfil y categorías) */
-.alto-contraste img {
-  background-color: #000000 !important;
-  filter: invert(100%) grayscale(100%) sepia(100%) hue-rotate(15deg) saturate(1000%) contrast(200%) !important;
-  mix-blend-mode: normal !important;
-}
-
-/* 3. Íconos SVG (Si las categorías o tu perfil usan iconos de código y no fotos) */
+/* Íconos vectoriales */
 .alto-contraste svg {
   color: #ffff00 !important;
   fill: currentColor !important;
-  /* Si tus iconos usan 'stroke' en lugar de 'fill' para dibujarse: */
   stroke: #ffff00 !important; 
 }
 
-/* Si un SVG está dentro de un botón (como el botón de perfil), forzar que se invierta en hover */
+/* Inversión de SVGs al hacer hover en botones o enlaces */
 .alto-contraste button:hover svg,
 .alto-contraste a:hover svg {
   color: #000000 !important;

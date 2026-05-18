@@ -175,26 +175,25 @@
   --popover: #000000;
   --popover-foreground: #ffffff;
 
+
   --primary: #ffff00;
   --primary-foreground: #000000;
-
   --primary-soft: #ffff00;
 
   --secondary: #000000;
   --secondary-foreground: #ffffff;
 
-  --muted: #000000;
-  --muted-foreground: #ffffff;
+  --muted: #ffffff;
+  --muted-foreground: #000000;
 
   --accent: #ffff00;
   --accent-foreground: #000000;
 
-  --destructive: #ff4d4d;
-  --destructive-foreground: #000000;
 
-  --success: #00ff66;
-  --warning: #ffff00;
-
+  --destructive: #ff5722;          
+  --destructive-foreground: #ffffff; 
+  --success: #00ffff;               
+  --warning: #ffff00;               
   --border: #ffffff;
   --input: #ffffff;
   --ring: #ffff00;
@@ -229,6 +228,13 @@
   font-weight: 700;
 }
 
+
+.alto-contraste button.destructive {
+  background-color: #ff5722;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
 .alto-contraste input,
 .alto-contraste textarea,
 .alto-contraste select {
@@ -237,9 +243,10 @@
   border: 2px solid #ffffff;
 }
 
+
 .alto-contraste input::placeholder,
 .alto-contraste textarea::placeholder {
-  color: #ffffff;
+  color: #ffff00;
   opacity: 1;
 }
 

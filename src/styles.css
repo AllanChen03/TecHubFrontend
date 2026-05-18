@@ -369,3 +369,30 @@
   fill: #000000 !important;
   stroke: #000000 !important;
 }
+
+/* --- ALTO CONTRASTE BOTÓN DE PERFIL EXACTO --- */
+.alto-contraste a[href="/app/perfil"] {
+  background-color: #000000 !important;
+  color: #ffff00 !important;
+  border: 2px solid #ffffff !important;
+  text-decoration: none !important; /* Lo tratamos como botón, sin subrayado */
+}
+
+.alto-contraste a[href="/app/perfil"]:hover,
+.alto-contraste a[href="/app/perfil"]:focus {
+  background-color: #ffff00 !important;
+  color: #000000 !important;
+  border-color: #ffff00 !important;
+}
+
+/* Forzar que el ícono SVG inicie amarillo */
+.alto-contraste a[href="/app/perfil"] svg {
+  stroke: #ffff00 !important;
+  fill: none !important;
+}
+
+/* Forzar que el ícono SVG pase a negro al hacer hover */
+.alto-contraste a[href="/app/perfil"]:hover svg,
+.alto-contraste a[href="/app/perfil"]:focus svg {
+  stroke: #000000 !important;
+}

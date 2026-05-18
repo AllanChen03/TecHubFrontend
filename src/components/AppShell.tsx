@@ -1,6 +1,6 @@
 import { Link, useNavigate, useLocation } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { Bell, ShoppingBag, User } from "lucide-react";
+import { Bell, ShoppingBag, User, Contrast } from "lucide-react";
 import { useEffect, useState, useRef, type ReactNode } from "react";
 import { API_URL } from "@/lib/config";
 
@@ -13,6 +13,7 @@ export function AppShell({ children, admin = false }: Props) {
   const nav = useNavigate();
   const loc = useLocation();
   const [mounted, setMounted] = useState(false);
+  const [altoContraste, setAltoContraste] = useState(false);
   const [totalNotifs, setTotalNotifs] = useState(false);
   const [mainFocusable, setMainFocusable] = useState(false); // [+] controla si el main recibe tabIndex
 
@@ -46,6 +47,31 @@ export function AppShell({ children, admin = false }: Props) {
     setMainFocusable(true); // [+] activa tabIndex solo para navegación interna
     mainRef.current?.focus();
   }, [loc.pathname]);
+  
+  useEffect(() => {
+    const guardado = localStorage.getItem("alto_contraste") === "true";
+
+    setAltoContraste(guardado);
+
+    if (guardado) {
+      document.documentElement.classList.add("alto-contraste");
+    } else {
+      document.documentElement.classList.remove("alto-contraste");
+    }
+  }, []);
+
+  const cambiarAltoContraste = () => {
+    const nuevoEstado = !altoContraste;
+
+    setAltoContraste(nuevoEstado);
+    localStorage.setItem("alto_contraste", nuevoEstado ? "true" : "false");
+
+    if (nuevoEstado) {
+      document.documentElement.classList.add("alto-contraste");
+    } else {
+      document.documentElement.classList.remove("alto-contraste");
+    }
+  };
 
   useEffect(() => {
     if (admin) return;
@@ -138,6 +164,24 @@ export function AppShell({ children, admin = false }: Props) {
           </nav>
 
           <div className="flex items-center gap-2 ml-auto">
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              onClick={cambiarAltoContraste}
+              className="text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+              aria-pressed={altoContraste}
+              aria-label={
+                altoContraste
+                  ? "Desactivar modo de alto contraste"
+                  : "Activar modo de alto contraste"
+              }
+            >
+              <Contrast className="size-4" aria-hidden="true" />
+              <span className="hidden sm:inline">
+                {altoContraste ? "Contraste activo" : "Alto contraste"}
+              </span>
+            </Button>
             {!admin && (
               <Link
                 to="/app/notificaciones"

@@ -164,3 +164,91 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+.alto-contraste {
+  --background: #000000;
+  --foreground: #ffffff;
+
+  --card: #000000;
+  --card-foreground: #ffffff;
+
+  --popover: #000000;
+  --popover-foreground: #ffffff;
+
+  --primary: #ffff00;
+  --primary-foreground: #000000;
+
+  --primary-soft: #ffff00;
+
+  --secondary: #000000;
+  --secondary-foreground: #ffffff;
+
+  --muted: #000000;
+  --muted-foreground: #ffffff;
+
+  --accent: #ffff00;
+  --accent-foreground: #000000;
+
+  --destructive: #ff4d4d;
+  --destructive-foreground: #000000;
+
+  --success: #00ff66;
+  --warning: #ffff00;
+
+  --border: #ffffff;
+  --input: #ffffff;
+  --ring: #ffff00;
+
+  --sidebar: #000000;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #ffff00;
+  --sidebar-primary-foreground: #000000;
+  --sidebar-accent: #ffff00;
+  --sidebar-accent-foreground: #000000;
+  --sidebar-border: #ffffff;
+  --sidebar-ring: #ffff00;
+}
+
+.alto-contraste body {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.alto-contraste * {
+  border-color: #ffffff;
+}
+
+.alto-contraste a {
+  color: #ffff00;
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+.alto-contraste button {
+  border: 2px solid #ffffff;
+  font-weight: 700;
+}
+
+.alto-contraste input,
+.alto-contraste textarea,
+.alto-contraste select {
+  background-color: #000000;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
+
+.alto-contraste input::placeholder,
+.alto-contraste textarea::placeholder {
+  color: #ffffff;
+  opacity: 1;
+}
+
+.alto-contraste :focus-visible {
+  outline: 4px solid #ffff00 !important;
+  outline-offset: 3px;
+}
+
+.alto-contraste .skip-link {
+  background: #ffff00;
+  color: #000000;
+}

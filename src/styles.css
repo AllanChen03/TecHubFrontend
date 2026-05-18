@@ -175,37 +175,38 @@
   --popover: #000000;
   --popover-foreground: #ffffff;
 
-
-  --primary: #ffff00;
+  --primary: #7dd3fc;
   --primary-foreground: #000000;
-  --primary-soft: #ffff00;
+
+  --primary-soft: #7dd3fc;
 
   --secondary: #000000;
   --secondary-foreground: #ffffff;
 
-  --muted: #ffffff;
-  --muted-foreground: #000000;
+  --muted: #000000;
+  --muted-foreground: #ffffff;
 
-  --accent: #ffff00;
+  --accent: #7dd3fc;
   --accent-foreground: #000000;
 
+  --destructive: #ff6b6b;
+  --destructive-foreground: #000000;
 
-  --destructive: #ff5722;          
-  --destructive-foreground: #ffffff; 
-  --success: #00ffff;               
-  --warning: #ffff00;               
+  --success: #86efac;
+  --warning: #facc15;
+
   --border: #ffffff;
   --input: #ffffff;
-  --ring: #ffff00;
+  --ring: #7dd3fc;
 
   --sidebar: #000000;
   --sidebar-foreground: #ffffff;
-  --sidebar-primary: #ffff00;
+  --sidebar-primary: #7dd3fc;
   --sidebar-primary-foreground: #000000;
-  --sidebar-accent: #ffff00;
+  --sidebar-accent: #7dd3fc;
   --sidebar-accent-foreground: #000000;
   --sidebar-border: #ffffff;
-  --sidebar-ring: #ffff00;
+  --sidebar-ring: #7dd3fc;
 }
 
 .alto-contraste body {
@@ -215,12 +216,6 @@
 
 .alto-contraste * {
   border-color: #ffffff;
-}
-
-.alto-contraste a {
-  color: #ffff00;
-  text-decoration: underline;
-  font-weight: 700;
 }
 
 .alto-contraste button {
@@ -250,12 +245,18 @@
   opacity: 1;
 }
 
+.alto-contraste a {
+  color: #7dd3fc;
+  text-decoration: underline;
+  font-weight: 700;
+}
+
 .alto-contraste :focus-visible {
-  outline: 4px solid #ffff00 !important;
+  outline: 4px solid #7dd3fc !important;
   outline-offset: 3px;
 }
 
 .alto-contraste .skip-link {
-  background: #ffff00;
+  background: #7dd3fc;
   color: #000000;
 }

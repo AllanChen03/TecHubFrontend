@@ -166,43 +166,44 @@
 }
 
 .alto-contraste {
-  /* Paleta Base: Negro Absoluto y Blanco Puro */
+  /* Paleta Oficial Chrome Extension: Amarillo Eléctrico sobre Negro Puro */
   --background: #000000;
-  --foreground: #ffffff;
+  --foreground: #ffff00; /* El amarillo es el color base para el texto */
 
   --card: #000000;
-  --card-foreground: #ffffff;
+  --card-foreground: #ffff00;
 
   --popover: #000000;
-  --popover-foreground: #ffffff;
+  --popover-foreground: #ffff00;
 
-  /* Elementos Principales y Enlaces (Amarillo de Alta Visibilidad) */
+  /* Elementos principales y activos */
   --primary: #ffff00;
   --primary-foreground: #000000;
   --primary-soft: #ffff00;
 
   --secondary: #000000;
-  --secondary-foreground: #ffffff;
+  --secondary-foreground: #ffff00;
 
-  /* Muted: Elementos deshabilitados o secundarios (Inversión visual) */
-  --muted: #ffffff;
+  /* Elementos secundarios o deshabilitados */
+  --muted: #ffff00;
   --muted-foreground: #000000;
 
   --accent: #ffff00;
   --accent-foreground: #000000;
 
-  /* Estados de Éxito y Destructivos Seguros para Daltonismo */
-  --destructive: #ff5722;           /* Naranja intenso (Seguro para Protanopía/Deuteranopía) */
-  --destructive-foreground: #ffffff;
-  --success: #00ffff;               /* Cian brillante (Reemplaza al verde común) */
-  --warning: #ffff00;               /* Amarillo */
+  /* Estados de alerta adaptados al esquema estricto de Chrome */
+  --destructive: #ff5722;           /* Naranja de alta visibilidad */
+  --destructive-foreground: #000000;
+  --success: #00ffff;               /* Cian brillante */
+  --warning: #ffff00;
 
+  /* Bordes y elementos de interfaz obligatorios en Blanco Puro para contraste estructural */
   --border: #ffffff;
   --input: #ffffff;
   --ring: #ffff00;
 
   --sidebar: #000000;
-  --sidebar-foreground: #ffffff;
+  --sidebar-foreground: #ffff00;
   --sidebar-primary: #ffff00;
   --sidebar-primary-foreground: #000000;
   --sidebar-accent: #ffff00;
@@ -211,76 +212,116 @@
   --sidebar-ring: #ffff00;
 }
 
-/* --- Reglas Globales de Estilo --- */
+/* --- Estilos Globales Estrictos --- */
 
 .alto-contraste body {
-  background-color: #000000;
-  color: #ffffff;
+  background-color: #000000 !important;
+  color: #ffff00 !important;
 }
 
+/* Forzar que todos los bordes sean visibles y delgados en blanco */
 .alto-contraste * {
-  border-color: #ffffff;
+  border-color: #ffffff !important;
 }
 
-/* Enlaces Generales */
+/* Enlaces (Copia fiel del comportamiento de la extensión) */
 .alto-contraste a {
-  color: #ffff00;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  font-weight: 700;
+  color: #ffff00 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+  font-weight: 700 !important;
 }
 
-/* --- SOLUCIÓN PARA EL NAVBAR Y ELEMENTOS INTERACTIVOS --- */
-/* Asegura que cuando pases el mouse o uses el teclado, el texto cambie a negro */
-.alto-contraste .navbar a:hover,
-.alto-contraste .navbar a:focus,
+/* --- REGLA DE INVERSIÓN TOTAL PARA EL NAVBAR Y ELEMENTOS INTERACTIVOS --- */
+/* Cuando el usuario hace hover/focus en el navbar, el fondo pasa a amarillo y el texto a negro puro */
 .alto-contraste nav a:hover,
 .alto-contraste nav a:focus,
-.alto-contraste .nav-item:hover {
+.alto-contraste .navbar a:hover,
+.alto-contraste .navbar a:focus,
+.alto-contraste .nav-item:hover,
+.alto-contraste [role="menuitem"]:hover {
   background-color: #ffff00 !important;
   color: #000000 !important;
-  text-decoration: underline;
+  text-decoration: underline !important;
 }
 
-/* Botones con inversión controlada */
+/* Botones con comportamiento invertido por defecto o al interactuar */
 .alto-contraste button {
-  background-color: #000000;
-  color: #ffffff;
-  border: 2px solid #ffffff;
-  font-weight: 700;
+  background-color: #000000 !important;
+  color: #ffff00 !important;
+  border: 2px solid #ffffff !important;
+  font-weight: 700 !important;
   padding: 8px 16px;
   cursor: pointer;
 }
 
 .alto-contraste button:hover,
 .alto-contraste button:focus {
-  background-color: #ffff00;
-  color: #000000;
-  border-color: #ffff00;
+  background-color: #ffff00 !important;
+  color: #000000 !important;
+  border-color: #ffff00 !important;
 }
 
-/* Campos de Formulario */
+/* Formularios del Modo Chrome */
 .alto-contraste input,
 .alto-contraste textarea,
 .alto-contraste select {
-  background-color: #000000;
-  color: #ffffff;
-  border: 2px solid #ffffff;
+  background-color: #000000 !important;
+  color: #ffff00 !important;
+  border: 2px solid #ffffff !important;
 }
 
 .alto-contraste input::placeholder,
 .alto-contraste textarea::placeholder {
   color: #ffff00;
-  opacity: 1;
+  opacity: 0.7; /* Ligera opacidad permitida solo en alto contraste para placeholders */
 }
 
-/* Accesibilidad de Enfoque Teclado (Focus) */
+/* Contorno de Enfoque de Teclado (Focus Ring oficial) */
 .alto-contraste :focus-visible {
   outline: 4px solid #ffff00 !important;
-  outline-offset: 3px;
+  outline-offset: 4px !important;
 }
 
 .alto-contraste .skip-link {
-  background: #ffff00;
-  color: #000000;
+  background: #ffff00 !important;
+  color: #000000 !important;
+}
+
+.alto-contraste .card,
+.alto-contraste .producto-card {
+  background-color: #000000 !important;
+  border: 1px solid #ffff00 !important; /* Borde amarillo sutil alrededor del producto */
+  border-radius: 8px; /* Mantén el borde redondeado si tu diseño original lo tiene */
+  overflow: hidden;
+}
+
+/* 2. Textos dentro de la tarjeta (Título, Precio, Estado, Sede, Categoría) */
+.alto-contraste .card h1,
+.alto-contraste .card h2,
+.alto-contraste .card h3,
+.alto-contraste .card p,
+.alto-contraste .card span {
+  color: #ffff00 !important;
+}
+
+/* 3. Contenedor de la imagen (opcional, para separar la foto del texto) */
+.alto-contraste .card .img-container,
+.alto-contraste .card figure {
+  background-color: #000000 !important;
+  border-bottom: 1px solid #ffff00 !important; /* Línea divisoria entre imagen y texto */
+}
+
+/* 4. EL TRUCO MAGNÍFICO: Convertir cualquier foto a Amarillo y Negro */
+.alto-contraste .card img {
+  /* Explicación del filtro:
+     1. grayscale(100%): Le quita todos los colores originales a la foto.
+     2. sepia(100%): Convierte la foto en tonos marrón/cálidos.
+     3. hue-rotate(15deg): Gira el tono marrón hacia el amarillo puro.
+     4. saturate(1000%): Exagera el color al máximo para lograr el efecto neón.
+     5. contrast(200%): Hace que los oscuros sean negros puros y los claros resalten. */
+  filter: grayscale(100%) sepia(100%) hue-rotate(15deg) saturate(1000%) contrast(200%) !important;
+  
+  /* Opcional: Si tus imágenes originales tienen fondo blanco y quieres que se fundan con el negro */
+  mix-blend-mode: screen; 
 }

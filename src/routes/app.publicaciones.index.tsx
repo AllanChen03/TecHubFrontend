@@ -269,7 +269,7 @@ function PublicacionesPage() {
           </div>
         </div>
         <Button ref={botonAbrirRef} onClick={abrirCrear} className="gap-2" aria-label="Crear nueva publicación">
-          <Plus className="size-4" aria-hidden="true" /> Nueva Publicacion
+          <Plus className="size-4" aria-hidden="true" /> Nueva Publicación
         </Button>
       </div>
 
@@ -283,11 +283,11 @@ function PublicacionesPage() {
         <div className="flex flex-col items-center justify-center py-24 gap-4 bg-white rounded-2xl border-2 border-dashed">
           <ShoppingBag className="size-16 text-muted-foreground/20" aria-hidden="true" />
           <div className="text-center">
-            <p className="font-semibold text-gray-600">Todavia no tenes publicaciones</p>
-            <p className="text-sm text-muted-foreground mt-1">Crea tu primera publicacion y empieza a vender</p>
+            <p className="font-semibold text-gray-600">Todavía no tenes publicaciones</p>
+            <p className="text-sm text-muted-foreground mt-1">Crea tu primera publicación y empieza a vender</p>
           </div>
           <Button onClick={abrirCrear} className="gap-2 mt-2" aria-label="Crear primera publicación">
-            <Plus className="size-4" aria-hidden="true" /> Crear primera publicacion
+            <Plus className="size-4" aria-hidden="true" /> Crear primera publicación
           </Button>
         </div>
       ) : (
@@ -316,7 +316,7 @@ function PublicacionesPage() {
                   <dl className="flex flex-col gap-0.5 text-xs text-muted-foreground">
                     <div><dt className="inline font-semibold text-gray-500">Estado: </dt><dd className="inline">{p.EstadoProducto || "—"}</dd></div>
                     <div><dt className="inline font-semibold text-gray-500">Sede: </dt><dd className="inline">{p.NombreSede || "—"}</dd></div>
-                    <div><dt className="inline font-semibold text-gray-500">Categoria: </dt><dd className="inline">{p.NombreCategoria || "—"}</dd></div>
+                    <div><dt className="inline font-semibold text-gray-500">Categoría: </dt><dd className="inline">{p.NombreCategoria || "—"}</dd></div>
                   </dl>
                   <div className="flex gap-2 mt-auto pt-3 border-t">
                     <Button
@@ -444,7 +444,7 @@ function PublicacionesPage() {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="descripcion">Descripcion</Label>
+                <Label htmlFor="descripcion">Descripción</Label>
                 <textarea
                   id="descripcion"
                   className="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 resize-none"
@@ -467,7 +467,7 @@ function PublicacionesPage() {
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="categoria">Categoria</Label>
+                  <Label htmlFor="categoria">Categoría</Label>
                   <select id="categoria" required
                     className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     value={form.CategoriaID}
@@ -489,7 +489,7 @@ function PublicacionesPage() {
                   </select>
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="condicion">Condicion</Label>
+                  <Label htmlFor="condicion">Condición</Label>
                   <select id="condicion" required
                     className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     value={form.CondicionID}

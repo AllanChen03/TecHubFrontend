@@ -423,6 +423,7 @@
 
 /* Control del Icono (SVG) para que cambie de color automáticamente */
 .alto-contraste button[aria-label*="alto contraste"] svg {
+  
   stroke: currentColor !important;
   fill: none !important;
   width: 16px !important;

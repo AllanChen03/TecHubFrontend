@@ -430,7 +430,7 @@ function PublicacionesPage() {
               tabIndex={-1}
               className="text-xl font-bold mb-6 text-primary outline-none"
             >
-              {modo === "crear" ? "Nueva Publicacion" : "Editar Publicacion"}
+              {modo === "crear" ? "Nueva Publicación" : "Editar Publicación"}
             </h2>
             <form onSubmit={handleGuardar} className="space-y-4">
               <div className="space-y-2">
